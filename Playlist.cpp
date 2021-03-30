@@ -9,3 +9,4 @@ PlaylistNode::PlaylistNode(){
     uniqueID = "none";
     artistName = "none";
 }
+

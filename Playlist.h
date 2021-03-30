@@ -10,14 +10,14 @@ class PlaylistNode {
         PlaylistNode();
         PlaylistNode(string& title, string& artist, int length, string& ID, PlaylistNode* next) : //paramatized constructor
             nextNodePtr(next), songLength(length), songTitle(title), uniqueID(ID), artistName(artist){};
-        InsertAfter();
-        SetNext(); //Mutator 
-        GetID(); //Accessor 
-        GetSongName() //Accessor
-        GetArtistName() //Accessor
-        GetSongLength() //Accessor
-        GetNext() //Accessor
-        PrintPlaylistNode()
+        void InsertAfter();
+        void SetNext(); //Mutator 
+        string GetID(); //Accessor 
+        string GetSongName(); //Accessor
+        string GetArtistName(); //Accessor
+        int GetSongLength(); //Accessor
+        PlaylistNode* GetNext(); //Accessor
+        void PrintPlaylistNode();
         
 
     
