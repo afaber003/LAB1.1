@@ -103,6 +103,19 @@ void PrintMenu(string songlistName)
 
 
   }
+
+  else if (menuOption == 's')
+  {
+    string artistName;
+    cout << "OUTPUT SONGS BY SPECIFIC ARTIST" << endl;
+    cout << "Enter artist's name: " << endl;
+    getline(cin, artistName);
+
+    for (PlaylistNode* currNode = head; currNode != nullptr; currNode = currNode->nextNodePtr)
+    {
+      
+    }
+  }
   else if (menuOption == 't') //testing option
   {
     cout << "test" << endl;
