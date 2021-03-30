@@ -49,6 +49,7 @@ void PrintMenu(string songlistName)
   }
   else if (menuOption == 'a'){
 
+    
     // User Input
     string tempid = "";
     cout << "Enter song's unique ID: " << endl;
@@ -71,6 +72,7 @@ void PrintMenu(string songlistName)
       PlaylistNode* newnode = new PlaylistNode(tempname, tempartist, templength, tempid, nullptr);
       tail->SetNext(newnode); // this will work once "setnext()" is implemented
       tail = newnode;
+      
     }
   }
 
@@ -89,16 +91,17 @@ void PrintMenu(string songlistName)
           head = curr->GetNext();
           delete curr;
         }
-        if (tail == curr) {              //condition for if deleting tail
-          //FIXME have to call previous as tail, will work on it later
+        else if (tail == curr) {              //condition for if deleting tail
+          PlaylistNode* prev = head;
+          while (prev->GetNext() != curr){
+            prev = prev->GetNext();
+          }
+          tail = prev;
+          delete curr;
         }
-
-
-
-
+        break;
       }
-
-
+      curr = curr->GetNext();
     }
 
 
