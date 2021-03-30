@@ -10,3 +10,9 @@ PlaylistNode::PlaylistNode(){
     artistName = "none";
 }
 
+void PlaylistNode::InsertAfter() {
+    if ()
+
+
+
+}
