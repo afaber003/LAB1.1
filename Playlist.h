@@ -8,6 +8,8 @@ class PlaylistNode {
     
     public: 
         PlaylistNode();
+        PlaylistNode(string& title, string& artist, int length, string& ID, PlaylistNode* next) : //paramatized constructor
+            nextNodePtr(next), songLength(length), songTitle(title), uniqueID(ID), artistName(artist){};
         
 
     
