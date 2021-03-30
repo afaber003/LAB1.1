@@ -1,4 +1,5 @@
 #include "Playlist.h"
+#include <iostream>
 
 
 // Default Constructor
@@ -15,4 +16,37 @@ void PlaylistNode::InsertAfter() {
 
 
 
+}
+
+string PlaylistNode::GetID() const
+{
+  return this->uniqueID;
+}
+
+string PlaylistNode::GetSongName() const
+{
+  return this->songTitle;
+}
+
+string PlaylistNode::GetArtistName() const
+{
+  return this->artistName;
+}
+
+int PlaylistNode::GetSongLength() const
+{
+  return this->songLength;
+}
+
+PlaylistNode* PlaylistNode::GetNext() const
+{
+  return this->nextNodePtr;
+}
+
+void PlaylistNode::PrintPlaylistNode()
+{
+  cout << "Unique ID: " << GetID() << endl;
+  cout << "Song Name: " << GetSongName() << endl;
+  cout << "Artist Name: " << GetArtistName() << endl;
+  cout << "Song Length (in seconds): " << GetSongLength() << endl;
 }

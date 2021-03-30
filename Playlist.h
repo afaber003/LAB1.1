@@ -8,15 +8,16 @@ class PlaylistNode {
     
     public: 
         PlaylistNode();
-        PlaylistNode(string& title, string& artist, int length, string& ID, PlaylistNode* next) : //paramatized constructor
-            nextNodePtr(next), songLength(length), songTitle(title), uniqueID(ID), artistName(artist){};
+        //paramatized constructor
+        PlaylistNode(string& title, string& artist, int length, string& ID, PlaylistNode* next) : 
+          nextNodePtr(next), songLength(length), songTitle(title), uniqueID(ID), artistName(artist){};
         void InsertAfter();
         void SetNext(); //Mutator 
-        string GetID(); //Accessor 
-        string GetSongName(); //Accessor
-        string GetArtistName(); //Accessor
-        int GetSongLength(); //Accessor
-        PlaylistNode* GetNext(); //Accessor
+        string GetID() const; //Accessor 
+        string GetSongName() const; //Accessor
+        string GetArtistName() const; //Accessor
+        int GetSongLength() const; //Accessor
+        PlaylistNode* GetNext() const; //Accessor
         void PrintPlaylistNode();
         
 
