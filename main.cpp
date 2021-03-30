@@ -10,15 +10,13 @@ PlaylistNode* tail = nullptr;
 
 
 void addSong();
-void PrintMenu(string );
+void PrintMenu(string);
 
 int main(){
 
   string playlistName;
   cout << "Enter playlist's title:" << endl;
-  cin >> playlistName;
-  cout << endl;
-
+  getline(cin, playlistName);
   PrintMenu(playlistName);
 
 

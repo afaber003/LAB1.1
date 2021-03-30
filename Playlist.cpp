@@ -11,11 +11,23 @@ PlaylistNode::PlaylistNode(){
     artistName = "none";
 }
 
-void PlaylistNode::InsertAfter() {
-    if ()
+void PlaylistNode::InsertAfter(PlaylistNode* insertNode) {
+  
+  if (this->nextNodePtr == nullptr){
+    this->nextNodePtr = insertNode;
+  }
+  else
+  {
+    PlaylistNode* temp = nullptr;
+    temp = this->nextNodePtr;
+    this->nextNodePtr = insertNode;
+    insertNode->nextNodePtr = temp;
+  }
+}
 
-
-
+void PlaylistNode::SetNext(PlaylistNode *nextNode){
+  this->nextNodePtr = nextNode;
+  
 }
 
 string PlaylistNode::GetID() const
