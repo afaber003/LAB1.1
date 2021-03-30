@@ -17,7 +17,6 @@ int main(){
   string playlistName;
   cout << "Enter playlist's title:" << endl;
   getline(cin, playlistName);
-  cout << endl;
   PrintMenu(playlistName);
 
 
@@ -39,7 +38,6 @@ void PrintMenu(string songlistName)
   cout << endl;
   cout << "Choose an option: " << endl;
   cin >> menuOption;
-  cout << endl;
 
   
   if (menuOption == 'q')
@@ -53,11 +51,9 @@ void PrintMenu(string songlistName)
     string tempid = "";
     cout << "Enter song's unique ID: " << endl;
     cin >> tempid;
-    cout << endl;
     string tempname = "";
     cout << "Enter song's name: " << endl;
     getline(cin, tempname);
-    cout << endl;
     string tempartist;
     cout << "Enter artist's name: " << endl;
     getline(cin, tempartist);
