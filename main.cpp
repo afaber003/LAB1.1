@@ -23,10 +23,10 @@ int main(){
     return 0;
 }
 
-void PrintMenu(string songlistName)
+void PrintMenu(string songListName)
 {
   char menuOption;
-  cout << songlistName << " PLAYLIST MENU" << endl;
+  cout << songListName << " PLAYLIST MENU" << endl;
   cout << "a - Add song" << endl;
   cout << "d - Remove song" << endl;
   cout << "c - Change position of song" << endl;
@@ -107,20 +107,54 @@ void PrintMenu(string songlistName)
   else if (menuOption == 's')
   {
     string artistName;
+    int songCounter = 1;
     cout << "OUTPUT SONGS BY SPECIFIC ARTIST" << endl;
     cout << "Enter artist's name: " << endl;
     getline(cin, artistName);
 
-    for (PlaylistNode* currNode = head; currNode != nullptr; currNode = currNode->nextNodePtr)
+    for (PlaylistNode* currNode = head; currNode != nullptr; currNode = currNode->GetNext())
     {
-      
+      if (currNode->GetArtistName() == artistName)
+      {
+        cout << songCounter << "." << endl;
+        currNode->PrintPlaylistNode();
+        cout << endl;
+      }
+      ++songCounter;
     }
   }
-  else if (menuOption == 't') //testing option
+  else if (menuOption == 't')
+  {
+    int playlistTime = 0;
+    cout << "OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)" << endl;
+    for (PlaylistNode* currNode = head; currNode != nullptr; currNode = currNode->GetNext())
+    {
+      playlistTime += currNode->GetSongLength();
+    }
+    cout << "Total time: " << playlistTime << " seconds" << endl;
+  }
+  
+  else if (menuOption == 'o')
+  {
+    int songCounter = 1;
+    cout << songListName << "- OUTPUT FULL PLAYLIST" << endl;
+    for (PlaylistNode* currNode = head; currNode != nullptr; currNode = currNode->GetNext())
+    {
+      cout << songCounter << "." << endl;
+      currNode->PrintPlaylistNode();
+      cout << endl;
+      ++songCounter;
+    }
+
+  }
+
+  else if (menuOption == 'z') //testing option
   {
     cout << "test" << endl;
   }
 
-  PrintMenu(songlistName);
+  
+  PrintMenu(songListName);
+
 
 }
