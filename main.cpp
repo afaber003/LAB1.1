@@ -70,10 +70,10 @@ void PrintMenu(string songListName)
 
     //Construction of new Song
     if (head == nullptr){
-      PlaylistNode* newnode = new PlaylistNode(tempname, tempartist, templength, tempid, nullptr);
+      PlaylistNode* newnode = new PlaylistNode(tempid, tempname, tempartist, templength, nullptr);
       head = tail = newnode;
     } else {
-      PlaylistNode* newnode = new PlaylistNode(tempname, tempartist, templength, tempid, nullptr);
+      PlaylistNode* newnode = new PlaylistNode(tempid, tempname, tempartist, templength, nullptr);
       tail->SetNext(newnode); // this will work once "setnext()" is implemented
       tail = newnode;
       
@@ -189,7 +189,7 @@ void PrintMenu(string songListName)
         temp = temp->GetNext();
       }
       string tempname = temp->GetSongName(); string artistname = temp->GetArtistName(); int legnth = temp->GetSongLength(); string idd = temp->GetID();
-      PlaylistNode* newone = new PlaylistNode(tempname, artistname, legnth, idd, nullptr);
+      PlaylistNode* newone = new PlaylistNode(idd, tempname, artistname, legnth, nullptr);
       
       if (temp->GetNext() == nullptr){ //if its tail
         if (currpos == 1) { //if its tail and head
