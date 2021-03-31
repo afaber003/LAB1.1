@@ -169,6 +169,7 @@ void PrintMenu(string songListName)
   else if (menuOption == 'c'){
     
     PlaylistNode* temp = nullptr;
+    PlaylistNode* tempprev = head;
 
     // User input
     int currpos = 0;
@@ -180,27 +181,67 @@ void PrintMenu(string songListName)
 
     // Movement of songs
     if (currpos == newpos) {/*doesn't do anything*/}
-    else if (currpos == 1) {                            // case for head
-      temp = head;
-      head = head->GetNext();
-    }
     else {
       temp = head;
-      int counter = 1;
-      while (temp->GetNext() != nullptr and counter != newpos){
+      bool isTail = false;
+      for (int i = 1; i < currpos; i++){   // sets temp as the one that is moving
+        if (temp->GetNext() == nullptr){break;}
         temp = temp->GetNext();
       }
-    }
-    
-
-
-
-    PlaylistNode* curr = head;
-    for (int i = 0; i < newpos; i++){
+      string tempname = temp->GetSongName(); string artistname = temp->GetArtistName(); int legnth = temp->GetSongLength(); string idd = temp->GetID();
+      PlaylistNode* newone = new PlaylistNode(tempname, artistname, legnth, idd, nullptr);
       
+      if (temp->GetNext() == nullptr){ //if its tail
+        if (currpos == 1) { //if its tail and head
+          delete temp;
+        }
+        else { 
+          PlaylistNode* tailtemp = head;
+          while (tailtemp->GetNext() != temp){
+            tailtemp = tailtemp->GetNext();
+          }
+          tail = tailtemp;
+          delete temp;
+        }
+      }
+      else if (currpos == 1) { //if its head
+        head = temp->GetNext();
+        delete temp;
+      }
+      else {
+        while (tempprev->GetNext() != temp){ //sets tempprev to proper value
+          tempprev = tempprev->GetNext();
+        }
+        tempprev->SetNext(temp->GetNext());
+        delete temp;
+      }
+
+/*****************
+      From here temp points at the node that newone should come after
+
+*****************/
+
+      temp = head;
+      int counter = 1;
+      if (newpos == 1){         // case for if newpos is head
+        newone->SetNext(head);
+        head = newone;
+      }
+      else {
+        int counter = 1;
+        while(isTail == false and counter + 1 < newpos){ // setting temp as defined above
+          if (temp->GetNext() == nullptr){
+            isTail = true;
+            break;
+          }
+          temp = temp->GetNext();
+        }
+        temp->InsertAfter(newone);
+        if (isTail){                    //if newpos is tail
+          tail = newone;
+        }
+      }
     }
-
-
   }
 
   else if (menuOption == 'z') //testing option
