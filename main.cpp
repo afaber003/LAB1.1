@@ -201,6 +201,7 @@ void PrintMenu(string songListName)
             tailtemp = tailtemp->GetNext();
           }
           tail = tailtemp;
+          tailtemp->SetNext(nullptr);
           delete temp;
         }
       }
