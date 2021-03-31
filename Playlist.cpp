@@ -27,7 +27,6 @@ void PlaylistNode::InsertAfter(PlaylistNode* insertNode) {
 
 void PlaylistNode::SetNext(PlaylistNode *nextNode){
   this->nextNodePtr = nextNode;
-  
 }
 
 string PlaylistNode::GetID() const
