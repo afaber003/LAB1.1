@@ -9,7 +9,7 @@ class PlaylistNode {
     public: 
         PlaylistNode();
         //paramatized constructor
-        PlaylistNode(string& ID, string& title, string& artist, int length, PlaylistNode* next = nullptr) :
+        PlaylistNode(string ID, string title, string artist, int length, PlaylistNode* next = nullptr) :
           songLength(length), songTitle(title), uniqueID(ID), artistName(artist){nextNodePtr = next;};
         void InsertAfter(PlaylistNode* );
         void SetNext(PlaylistNode* ); //Mutator 

@@ -4,7 +4,7 @@
 
 // Default Constructor
 PlaylistNode::PlaylistNode(){
-    PlaylistNode* nextNodePtr = nullptr;
+    nextNodePtr = nullptr;
     songLength = 0;
     songTitle = "none";
     uniqueID = "none";
