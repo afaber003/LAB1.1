@@ -165,7 +165,7 @@ void PrintMenu(string songListName)
   {
     int songCounter = 1;
     cout << songListName << "- OUTPUT FULL PLAYLIST" << endl;
-    if (head = nullptr){cout << "Playlist is Empty" << endl;}
+    if (head == nullptr){cout << "Playlist is Empty" << endl;}
     space
     for (PlaylistNode* currNode = head; currNode != nullptr; currNode = currNode->GetNext())
     {
