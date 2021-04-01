@@ -204,6 +204,7 @@ void PrintMenu(string songListName)
         if (temp->GetNext() == nullptr){break;}
         temp = temp->GetNext();
       }
+      cout << '"' << temp->GetSongName() << '"' << " was moved to position ";
       string tempname = temp->GetSongName(); string artistname = temp->GetArtistName(); int legnth = temp->GetSongLength(); string idd = temp->GetID();
       PlaylistNode* newone = new PlaylistNode(idd, tempname, artistname, legnth, nullptr);
       
@@ -241,6 +242,7 @@ void PrintMenu(string songListName)
       temp = head;
       if (newpos == 1){         // case for if newpos is head
         newone->SetNext(head);
+        cout << "1" << endl;
         head = newone;
       }
       else {
@@ -251,7 +253,9 @@ void PrintMenu(string songListName)
             break;
           }
           temp = temp->GetNext();
+          counter++;
         }
+        cout << counter + 1 << endl;
         temp->InsertAfter(newone);
         if (isTail){                    //if newpos is tail
           tail = newone;
