@@ -2,6 +2,7 @@
 #include <fstream>
 #include "Playlist.h"
 #define space cout << endl;
+#define space2 space space
 
 using namespace std;
 
@@ -18,9 +19,9 @@ void PrintMenu(string);
 int main(){
 
   string playlistName;
-  cout << "Enter playlist's title:" << endl;
+  cout << "Enter playlist's title:";
   getline(cin, playlistName);
-  space
+  space2
   PrintMenu(playlistName);
 
 
@@ -40,10 +41,9 @@ void PrintMenu(string songListName)
   cout << "q - Quit" << endl;
 
   space
-  cout << "Choose an option: " << endl;
+  cout << "Choose an option:";
   cin >> menuOption;
   space
-
   
   if (menuOption == 'q')
   {
@@ -51,23 +51,27 @@ void PrintMenu(string songListName)
   }
   else if (menuOption == 'a'){
 
-    
+    cout << "ADD SONG" << endl;
     // User Input
     string tempid = "";
-    cout << "Enter song's unique ID: " << endl;
+    cout << "Enter song's unique ID:";
     cin >> tempid;
+    space
     string tempname = "";
     string tempname2 = "";
-    cout << "Enter song's name: \n";
+    cout << "Enter song's name:";
     cin >> tempname;
     getline(cin, tempname2);
+    space
     tempname += tempname2;
     string tempartist;
-    cout << "Enter artist's name: \n";
+    cout << "Enter artist's name:";
     getline(cin, tempartist);
+    space
     int templength;
-    cout << "Enter song's length (in seconds): " << endl;
+    cout << "Enter song's length (in seconds):";
     cin >> templength;
+    space
     space
 
     //Construction of new Song
@@ -84,9 +88,10 @@ void PrintMenu(string songListName)
 
   else if (menuOption == 'd'){
 
+    cout << "REMOVE SONG" << endl;
     // User Input
     string tempid = "";
-    cout << "Enter song's unique ID: " << endl;
+    cout << "Enter song's unique ID:";
     cin >> tempid;
     space
 
@@ -96,7 +101,8 @@ void PrintMenu(string songListName)
       if (curr->GetID() == tempid){ //checks for songID to set curr to node to be deleted
         if (head == curr){              //condition for if deleting head
           head = curr->GetNext();
-          cout << '"' << curr->GetSongName() << '"' << " was removed" << endl;
+          cout << '"' << curr->GetSongName() << '"' << " removed." << endl;
+          space
           delete curr;
         }
         else if (tail == curr) {              //condition for if deleting tail
@@ -106,7 +112,8 @@ void PrintMenu(string songListName)
           }
           tail = prev;
           tail->SetNext(nullptr);
-          cout << '"' << curr->GetSongName() << '"' << " was removed" << endl;
+          cout << '"' << curr->GetSongName() << '"' << " removed." << endl;
+          space
           delete curr;
         }
         else {
@@ -115,7 +122,8 @@ void PrintMenu(string songListName)
             prev = prev->GetNext();
           }
           prev->SetNext(curr->GetNext());
-          cout << '"' << curr->GetSongName() << '"' << " was removed" << endl;
+          cout << '"' << curr->GetSongName() << '"' << " removed." << endl;
+          space
           delete curr;
         }
         break;
@@ -132,9 +140,10 @@ void PrintMenu(string songListName)
     string artistname2;
     int songCounter = 1;
     cout << "OUTPUT SONGS BY SPECIFIC ARTIST" << endl;
-    cout << "Enter artist's name: \n";
+    cout << "Enter artist's name:";
     cin >> artistname2;
     getline(cin, artistName);
+    space
     artistName = artistname2 + artistName;
     space
 
@@ -167,9 +176,8 @@ void PrintMenu(string songListName)
   else if (menuOption == 'o')
   {
     int songCounter = 1;
-    cout << songListName << "- OUTPUT FULL PLAYLIST" << endl;
-    if (head == nullptr){cout << "Playlist is Empty" << endl;}
-    space
+    cout << songListName << " - OUTPUT FULL PLAYLIST" << endl;
+    if (head == nullptr){cout << "Playlist is empty" << endl;space}
     for (PlaylistNode* currNode = head; currNode != nullptr; currNode = currNode->GetNext())
     {
       cout << songCounter << "." << endl;
@@ -182,17 +190,21 @@ void PrintMenu(string songListName)
 
   else if (menuOption == 'c' and head != nullptr){
     
+    cout << "CHANGE POSITION OF SONG" << endl;
+
     PlaylistNode* temp = nullptr;
     PlaylistNode* tempprev = head;
 
     // User input
     int currpos = 0;
     int newpos = 0;
-    cout << "Enter song's current position:\n";
+    cout << "Enter song's current position:";
     cin >> currpos;
+    space
     if (currpos < 1){currpos = 1;}
-    cout << "Enter new position for song:\n";
+    cout << "Enter new position for song:";
     cin >> newpos;
+    space
     if (newpos < 1){newpos = 1;}
 
     // Movement of songs
@@ -204,7 +216,7 @@ void PrintMenu(string songListName)
         if (temp->GetNext() == nullptr){break;}
         temp = temp->GetNext();
       }
-      cout << '"' << temp->GetSongName() << '"' << " was moved to position ";
+      cout << '"' << temp->GetSongName() << '"' << " moved to position ";
       string tempname = temp->GetSongName(); string artistname = temp->GetArtistName(); int legnth = temp->GetSongLength(); string idd = temp->GetID();
       PlaylistNode* newone = new PlaylistNode(idd, tempname, artistname, legnth, nullptr);
       
