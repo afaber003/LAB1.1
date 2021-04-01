@@ -5,6 +5,8 @@
 
 using namespace std;
 
+//Made by Andrew Faber and Benjamin Bravo CS10C Section 001
+
 
 PlaylistNode* head = nullptr;
 PlaylistNode* tail = nullptr;
