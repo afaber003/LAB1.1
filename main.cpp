@@ -166,7 +166,7 @@ void PrintMenu(string songListName)
 
   }
 
-  else if (menuOption == 'c'){
+  else if (menuOption == 'c' and head != nullptr){
     
     PlaylistNode* temp = nullptr;
     PlaylistNode* tempprev = head;
