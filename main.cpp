@@ -91,7 +91,7 @@ void PrintMenu(string songListName)
     // Find and Remove Song
     PlaylistNode* curr = head;
     while (curr != nullptr) {
-      if (curr->GetID() == tempid){
+      if (curr->GetID() == tempid){ //checks for songID to set curr to node to be deleted
         if (head == curr){              //condition for if deleting head
           head = curr->GetNext();
           delete curr;
@@ -103,6 +103,14 @@ void PrintMenu(string songListName)
           }
           tail = prev;
           tail->SetNext(nullptr);
+          delete curr;
+        }
+        else {
+          PlaylistNode* prev = head;
+          while (prev->GetNext() != curr){
+            prev = prev->GetNext();
+          }
+          prev->SetNext(curr->GetNext());
           delete curr;
         }
         break;
