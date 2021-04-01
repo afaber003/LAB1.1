@@ -96,7 +96,7 @@ void PrintMenu(string songListName)
       if (curr->GetID() == tempid){ //checks for songID to set curr to node to be deleted
         if (head == curr){              //condition for if deleting head
           head = curr->GetNext();
-          cout << '"' << curr->GetSongName() << '"' << " was deleted" << endl;
+          cout << '"' << curr->GetSongName() << '"' << " was removed" << endl;
           delete curr;
         }
         else if (tail == curr) {              //condition for if deleting tail
@@ -106,7 +106,7 @@ void PrintMenu(string songListName)
           }
           tail = prev;
           tail->SetNext(nullptr);
-          cout << '"' << curr->GetSongName() << '"' << " was deleted" << endl;
+          cout << '"' << curr->GetSongName() << '"' << " was removed" << endl;
           delete curr;
         }
         else {
@@ -115,7 +115,7 @@ void PrintMenu(string songListName)
             prev = prev->GetNext();
           }
           prev->SetNext(curr->GetNext());
-          cout << '"' << curr->GetSongName() << '"' << " was deleted" << endl;
+          cout << '"' << curr->GetSongName() << '"' << " was removed" << endl;
           delete curr;
         }
         break;
