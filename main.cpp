@@ -261,6 +261,7 @@ void PrintMenu(string songListName)
           tail = newone;
         }
       }
+      space
     }
   }
 
