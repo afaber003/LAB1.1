@@ -223,7 +223,6 @@ void PrintMenu(string songListName)
 *****************/
 
       temp = head;
-      int counter = 1;
       if (newpos == 1){         // case for if newpos is head
         newone->SetNext(head);
         head = newone;
